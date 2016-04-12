@@ -5,6 +5,5 @@
           "registry": ".bower-registry"
   },
   "tmp": ".bower-tmp",
-  "proxy": "http://192.63.247.93:808",
-  "https-proxy": "http://192.63.247.93:808"
+  
 }
