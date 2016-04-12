@@ -1,0 +1,1 @@
+var app = angular.module('gitApp',['ngResource','ngMaterial','ui.router','md.data.table','ngMdIcons']);
