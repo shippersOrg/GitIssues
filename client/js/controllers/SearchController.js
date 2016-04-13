@@ -19,7 +19,7 @@ app.controller('SearchCtrl',function($scope, $state, SearchService, IssuesServic
 		$scope.total = 0;
 		var page = 1;
 		var date = new Date();
-		
+		//Until the promise is fulfilled(getIssues returning a response), the progress bar will indicate progress
 		$scope.promise = SearchService.getIssues(url, page,0,0,0,date)
 		.then(function(data){
 			$scope.today = data.today;
@@ -31,6 +31,7 @@ app.controller('SearchCtrl',function($scope, $state, SearchService, IssuesServic
 		});
 	};
 	
+	//displays the different open issues in a different screen, differentiated based on when it was opened.
 	$scope.listIssues = function(when){
 		var date = new Date();
 		var date_in_ms = date.getTime();
@@ -73,10 +74,11 @@ app.controller('SearchCtrl',function($scope, $state, SearchService, IssuesServic
 			return;
 		}
 		IssuesService.setData(url, q, title);
-		sessionStorage.searchUrl = url;
+		sessionStorage.searchUrl = url; //storing the url in the sessionStorage, so that when the user returns back from the next page, the results will be displayed without his input
 		$state.go('issues');
 	};
 	
+	//if there is an url stored in the session, then, the search is conducted again for fresh results on visiting this page/refreshing it
 	if(sessionStorage.searchUrl){
 		$scope.searchUrl = sessionStorage.searchUrl;
 		$scope.search();

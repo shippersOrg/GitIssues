@@ -6,6 +6,8 @@ app.controller('IssuesCtrl',function($scope, $state, IssuesService, $mdDialog, $
   	}
   	$scope.total;
   	$scope.title = IssuesService.getTitle();
+
+  	//gets the issues and displays it on the UI.
 	$scope.listIssues = function(){
 		$scope.promise = IssuesService.listIssues($scope.query.page)
 		.then(function(data){

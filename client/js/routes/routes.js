@@ -1,5 +1,5 @@
 app.config(function($stateProvider, $urlRouterProvider) {
-
+//routes for different states in the app
 $stateProvider
  .state('search', {
       url: '/search',

@@ -1,3 +1,4 @@
+//Show alert is a common function used by different controllers. It displays a md-dialog with a title, message and a button.
 function showAlert(id, title, description, $mdDialog){
 		$mdDialog.show(
       		$mdDialog.alert()
