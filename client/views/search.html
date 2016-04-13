@@ -15,9 +15,9 @@
               <table md-table md-row-select multiple ng-model="selected" md-progress="promise">
                 <thead md-head>
                   <tr md-row>
-                    <th md-column><span>Total open issues</span></th>
-                    <th md-column><span>Issues opened in the last 24 hours</span></th>
-                    <th md-column>Issues opened more than 24 hours ago but less than 7 days ago</th>
+                    <th md-column md-numeric><span>Total open issues</span></th>
+                    <th md-column md-numeric><span>Issues opened in the last 24 hours</span></th>
+                    <th md-column md-numeric>Issues opened more than 24 hours ago but less than 7 days ago</th>
                     <th md-column md-numeric>Issues opened before 7 days</th>
                   </tr>
                 </thead>
