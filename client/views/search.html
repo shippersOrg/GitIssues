@@ -1,12 +1,7 @@
-<div layout="column" ng-cloak>
-  <md-content layout-padding>
-    <!-- <div layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-      <md-input-container class="md-block">
-        <label>Enter public GitHub Repo</label>
-        <input ng-model="user.title">
-      </md-input-container>
-      <md-button class="md-raised md-primary">Search</md-button>
-    </div> -->
+<div layout="column" flex ng-cloak id="popupContainer">
+  <div layout="row" flex>
+   <md-content layout="column" flex layout-fill layout-padding>
+    <md-card>
     <div layout="row" layout-sm="column" layout-align="center center" layout-wrap>
      <md-input-container md-theme="input" flex>
             <label>GitHub Repo</label>
@@ -17,27 +12,28 @@
           </md-button>
         </div>
             <md-table-container>
-              <table md-table md-row-select multiple ng-model="selected">
+              <table md-table md-row-select multiple ng-model="selected" md-progress="promise">
                 <thead md-head>
                   <tr md-row>
-                    <th md-column><span>Total</span></th>
-                    <th md-column><span>Opened in the last 24 hours</span></th>
-                    <th md-column>Opened more than 24 hours ago but less than 7 days ago</th>
+                    <th md-column><span>Total open issues</span></th>
+                    <th md-column><span>Issues opened in the last 24 hours</span></th>
+                    <th md-column>Issues opened more than 24 hours ago but less than 7 days ago</th>
                     <th md-column md-numeric>Issues opened before 7 days</th>
                   </tr>
                 </thead>
                 <tbody md-body>
                   <tr md-row>
-                    <td md-cell>{{total}}</td>
-                    <td md-cell>{{today.length}}</td>
-                    <td md-cell>{{thisWeek.length}}</td>
-                    <td md-cell>{{total - (today.length+thisWeek.length)}}</td>
+                    <td md-cell><a href ng-click="listIssues('all')">{{total}}</a></td>
+                    <td md-cell><a href ng-click="listIssues('today')">{{today}}</a></td>
+                    <td md-cell><a href ng-click="listIssues('thisWeek')">{{thisWeek}}</a></td>
+                    <td md-cell><a href ng-click="listIssues('prev')">{{prev}}</a></td>
                   </tr>
                 </tbody>
               </table>
             </md-table-container>
-
+          </md-card>
 
 
   </md-content>
+</div>
 </div>

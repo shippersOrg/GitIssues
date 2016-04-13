@@ -8,7 +8,8 @@ $stateProvider
     })
   .state('issues', {
       url: '/issues',
-      templateUrl: '/html/issues.html'
+      templateUrl: '/html/issues.html',
+      controller: 'IssuesCtrl'
     });
 
 $urlRouterProvider.otherwise('/search');
