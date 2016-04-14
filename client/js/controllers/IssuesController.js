@@ -1,24 +1,18 @@
 app.controller('IssuesCtrl',function($scope, $state, IssuesService, $mdDialog, $window){
-	$scope.issues = [];
 	$scope.query = {
     	limit: 100,
     	page: 1
   	}
-  	$scope.total;
-  	$scope.title = IssuesService.getTitle();
+  	
+	$scope.issues = IssuesService.listIssues();
+	console.log($scope.issues)
+	$scope.title = IssuesService.getTitle();
 
-  	//gets the issues and displays it on the UI.
-	$scope.listIssues = function(){
-		$scope.promise = IssuesService.listIssues($scope.query.page)
-		.then(function(data){
-			$scope.issues = data.items;
-			$scope.total = data.total_count;
-		}, function(data){
-			showAlert("issuePage",data.message, data.errors[0].message, $mdDialog);
-		});
-	};
-	$scope.listIssues();
-	
+	$scope.logPagination = function (page, limit) {
+    	console.log('page: ', page);
+    	console.log('limit: ', limit);
+  	}
+
 	$scope.getDate = function(date){
 		return new Date(date).toDateString();
 	};

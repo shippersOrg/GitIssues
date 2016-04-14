@@ -14,7 +14,7 @@
             </tr>
           </thead>
           <tbody md-body>
-            <tr md-row ng-repeat="issue in issues">
+            <tr md-row ng-repeat="issue in issues | limitTo: query.limit : (query.page -1) * query.limit">
               <td md-cell><a href ng-click="openInNewTab(issue.html_url)">{{issue.number}}</a></td>
               <td md-cell><a href ng-click="issueDescribe(issue.title,issue.body)">{{issue.title}}</a></td>
               <td md-cell>{{getDate(issue.updated_at)}}</td>
@@ -24,7 +24,7 @@
           </tbody>
         </table>
       </md-table-container>
-      <md-table-pagination md-limit="query.limit" md-page="query.page" md-total="{{total}}" md-on-paginate="listIssues" md-page-select></md-table-pagination>
+      <md-table-pagination md-limit="query.limit" md-page="query.page" md-total="{{issues.length}}" md-on-paginate="logPagination" md-page-select></md-table-pagination>
     </md-card>
   </md-content>
 </div>
