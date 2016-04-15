@@ -1,3 +1,7 @@
+Git Open issues : http://obscure-dawn-57524.herokuapp.com/
+
+This web app lists all the open issues for public repositories in the order of recently opened first to the older ones at last.
+
 The solution implemented is in the following manner:
 	- query the GitHub api and get the open issues in descending order.
 	- increase the count for issues raised on the current day, current week and previous week accordingly.
