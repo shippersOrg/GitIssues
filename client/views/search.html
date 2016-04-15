@@ -2,15 +2,15 @@
   <div layout="row" flex>
    <md-content layout="column" flex layout-fill layout-padding>
     <md-card>
-    <div layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+    <form layout="row" layout-sm="column" layout-align="center center" layout-wrap ng-submit="search()">
      <md-input-container md-theme="input" flex>
             <label>GitHub Repo</label>
             <input ng-model="searchUrl">
           </md-input-container>
-          <md-button aria-label="Search" ng-click="search()">
+          <md-button type="submit" aria-label="Search">
             <ng-md-icon icon="search"></ng-md-icon>
           </md-button>
-        </div>
+        </form>
             <md-table-container>
               <table md-table md-row-select multiple ng-model="selected" md-progress="promise">
                 <thead md-head>
